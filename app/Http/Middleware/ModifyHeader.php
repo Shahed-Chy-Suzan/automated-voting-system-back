@@ -2,10 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\Helpers\IdHashingHelper;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
 
 class ModifyHeader
 {
@@ -25,7 +23,7 @@ class ModifyHeader
         if ($request->headers->get('Accept') == '*/*') {
             $request->headers->set('Accept', 'application/json');
         }
-        
+
         $response = $next($request);
         $response->headers->set("Access-Control-Allow-Origin", "*");
         $response->headers->set("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-Requested-With");

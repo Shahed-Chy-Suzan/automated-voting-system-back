@@ -19,7 +19,6 @@ class CreateVotersTable extends Migration
             $table->string('voter_name');
             $table->string('age')->nullable();
             $table->string('nid')->unique();
-            $table->string('user_name')->unique();
             $table->string('finger_print_id')->unique()->nullable();
             $table->timestamps();
             $table->softDeletes();

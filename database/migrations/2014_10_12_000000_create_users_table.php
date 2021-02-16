@@ -23,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        DB::table('users')->insert(
+            ['name' => 'Some one', 'phone' => "01819000000", 'username' => 'admin', 'password' => 'admin']
+        );
     }
 
     /**

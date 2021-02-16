@@ -2364,7 +2364,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613472819859</updated>
-      <workItem from="1613472820968" duration="2657000" />
+      <workItem from="1613472820968" duration="7772000" />
     </task>
     <servers />
   </component>
@@ -2383,6 +2383,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613478887696">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613478887696" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1613474482737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

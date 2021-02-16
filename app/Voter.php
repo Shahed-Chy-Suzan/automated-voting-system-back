@@ -12,7 +12,7 @@ class Voter extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'voter_name', 'age', 'nid', 'user_name', 'finger_print_id'
+        'user_id', 'voter_name', 'age', 'nid', 'finger_print_id'
     ];
 
     public function user() {

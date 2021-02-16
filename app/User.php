@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -49,4 +50,11 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    /**
+     * @param $password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
 }

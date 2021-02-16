@@ -2,70 +2,78 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Voter;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 
 class VoterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function index()
     {
-        //
+        $voters = Voter::all();
+
+        return ['message'=>'OK', 'data' => $voters];
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return array
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'voter_name'=>'required|min:2|max:50',
+            'age'=>'numeric',
+            'nid'=>'required|numeric',
+            'finger_print_id'=>'',
+        ]);
+
+        $userData = new User();
+        $userData->name = $request->voter_name;
+        $userData->username = $request->nid;
+        $userData->password = $request->nid;;
+        $userData->save();
+
+        $voterData = new Voter();
+        $voterData->user_id = $userData->id;
+        $voterData->voter_name = $request->voter_name;
+        $voterData->age = $request->age;
+        $voterData->nid = $request->nid;
+        $voterData->finger_print_id = $request->finger_print_id;
+        $voterData->save();
+
+        return ['message'=>'OK', 'data' => $voterData];
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Voter  $voter
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Voter $voter)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Voter  $voter
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Voter $voter)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  \App\Voter  $voter
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Voter $voter)
     {
@@ -76,7 +84,7 @@ class VoterController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Voter  $voter
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Voter $voter)
     {

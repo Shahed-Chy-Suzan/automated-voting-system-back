@@ -24,10 +24,7 @@ Route::get('/', function () {
 
 //-------------------------------------------------------------------------------
 Route::group([
-
-    // 'middleware' => 'api',
     'prefix' => 'auth'
-
 ], function () {                            //------JWT(auth)-------
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
@@ -37,4 +34,4 @@ Route::group([
 });
 
 //------------------------------------------------------------
-Route::Resource('/bus','BusController');
+Route::resource('/voter','VoterController');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -25,18 +26,18 @@ class AuthController extends Controller
     /**
      * Get a JWT via given credentials.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function login(Request $request)
     {
         $validateData = $request->validate([
-            'user_name' => ['required', 'min:4', 'string', 'max:255'],
-            'finger_print_id' => ['required', 'min:4'],
+            'username' => ['required', 'min:4', 'string', 'max:255'],
+            'password' => ['required', 'min:4'],
         ]);
 
-        $credentials = request(['user_name', 'finger_print_id']);
+        $credentials = request(['username', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'User or Finger Print field is Invalid'], 401);
         }
 
@@ -46,7 +47,7 @@ class AuthController extends Controller
     /**
      * Get the authenticated User.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function me()
     {
@@ -56,7 +57,7 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function logout()
     {
@@ -68,7 +69,7 @@ class AuthController extends Controller
     /**
      * Refresh a token.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function refresh()
     {
@@ -79,19 +80,13 @@ class AuthController extends Controller
     public function signup(Request $request)    //---------------------------
     {
         $validateData = $request->validate([
-            'voter_name' => ['required', 'string', 'max:255'],
-            'age' => ['required', 'numeric'],
-            'nid' => ['required', 'min:4', 'unique:users'],
-            'user_name' => ['required', 'min:4', 'string', 'max:255'],
-            'finger_print_id' => ['required', 'min:4', 'unique:users'],
+            'username' => ['required', 'min:4', 'string', 'max:255'],
+            'password' => ['required', 'min:4', 'unique:users'],
         ]);
 
         $data = array();
-        $data['voter_name'] = $request->voter_name;
-        $data['age'] = $request->age;
-        $data['nid'] = $request->nid;
-        $data['user_name'] = $request->user_name;
-        $data['finger_print_id'] = Hash::make($request->finger_print_id);
+        $data['username'] = $request->username;
+        $data['password'] = Hash::make($request->password);
 
         DB::table('users')->insert($data);
 
@@ -103,7 +98,7 @@ class AuthController extends Controller
      *
      * @param  string $token
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     protected function respondWithToken($token)
     {
@@ -111,9 +106,9 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type'   => 'bearer',
             'expires_in'   => auth()->factory()->getTTL() * 60,
-            'user_name'     => auth()->user()->user_name,             //--OR-- Auth::user()->name
+            'username'     => auth()->user()->username,             //--OR-- Auth::user()->name
             'user_id'      => auth()->user()->id,
-            'finger_print_id' => auth()->user()->finger_print_id,         //-- Auth::user()->email
+            'password' => auth()->user()->password,         //-- Auth::user()->email
         ]);
     }
 }
