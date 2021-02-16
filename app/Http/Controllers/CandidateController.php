@@ -12,36 +12,42 @@ class CandidateController extends Controller
     {
         $candidate = DB::table('candidates')
                 ->join('positions','candidates.position_id','positions.id')
+                ->select('candidates.*')
                 ->get();
         return response()->json($candidate,200);
     }
 
     public function store(Request $request)
     {
-        // $this->validate($request,[
-        //     'channel'=>'required|unique:bus_drivers,channel',
-        //     'plate_no'=>'required|unique:bus_drivers,busId',
-        //     'driver_name'=>'required|unique:bus_drivers,driverId',
-        //     'driving_status'=>'required',
-        //     'startDate'=>'required'
-        // ]);
+        $this->validate($request,[
+            'name'=>'required',
+            'position_id'=>'required',
+            'age'=>'required|numeric'
+        ]);
 
-        // $busDriver = New Candidate();
-        // $busDriver->channel = $request->channel;
-        // $busDriver->busId = $request->plate_no;
-        // $busDriver->driverId = $request->driver_name;
-        // $busDriver->driving_status = $request->driving_status;
-        // $busDriver->startDate = $request->startDate;
-        // $busDriver->save();
+        $candidate = New Candidate();
+        $candidate->name = $request->name;
+        $candidate->position_id = $request->position_id;
+        $candidate->age = $request->age;
+        $candidate->team = $request->team;
+        $candidate->save();
+        return ['message'=>'OK', 'data' => $candidate];
     }
 
-    public function update(Request $request, Candidate $candidate)
+    public function update(Request $request, $id)
     {
-        //
+        $candidate = Candidate::find($id);
+        $candidate->name = $request->name;
+        $candidate->position_id = $request->position_id;
+        $candidate->age = $request->age;
+        $candidate->team = $request->team;
+        $candidate->save();
+        return ['message'=>'OK', 'data' => $candidate];
     }
 
-    public function destroy(Candidate $candidate)
+    public function destroy($id)
     {
-        //
+        $candidate = Candidate::find($id);
+        $candidate->delete();
     }
 }
