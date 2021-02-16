@@ -56,38 +56,14 @@ class VoterController extends Controller
         return ['message'=>'OK', 'data' => $voterData];
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Voter  $voter
-     * @return Response
-     */
-    public function show(Voter $voter)
-    {
-        //
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param  \App\Voter  $voter
-     * @return Response
-     */
     public function update(Request $request, Voter $voter)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Voter  $voter
-     * @return Response
-     */
-    public function destroy(Voter $voter)
+    public function destroy($id)
     {
-        //
+        $voterData = Voter::find($id);
+        $voterData->delete();
     }
 }
