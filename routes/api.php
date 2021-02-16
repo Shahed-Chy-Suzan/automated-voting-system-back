@@ -35,3 +35,5 @@ Route::group([
 
 //------------------------------------------------------------
 Route::resource('/voter','VoterController');
+Route::resource('/position','PositionController');
+Route::resource('/candidate','CandidateController');
