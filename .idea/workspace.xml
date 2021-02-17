@@ -1773,6 +1773,12 @@
       <change beforePath="$PROJECT_DIR$/../app/Services/Ticket/TicketService/Base.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/Services/Ticket/TicketService/FreshDesk.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../artisan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/automated-voting-system-back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/automated-voting-system-back.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VoterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VoterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bootstrap/app.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../bootstrap/cache/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../composer.json" beforeDir="false" />
@@ -2226,12 +2232,12 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -2356,6 +2362,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -2364,7 +2376,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613472819859</updated>
-      <workItem from="1613472820968" duration="7772000" />
+      <workItem from="1613472820968" duration="9444000" />
+      <workItem from="1613538035402" duration="1003000" />
     </task>
     <servers />
   </component>
@@ -2381,12 +2394,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613478887696">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613539028403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613478887696" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613539028403" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1613474482737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

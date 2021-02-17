@@ -10,7 +10,7 @@ class PositionController extends Controller
 {
     public function index()
     {
-        $position = Position::all();
+        $position = Position::with('candidates')->get();
         return response()->json($position);
     }
 

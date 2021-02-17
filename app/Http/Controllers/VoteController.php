@@ -3,18 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Vote;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VoteController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function index()
     {
-        //
+        $votes = DB::table('votes')
+            ->select('votes.*')
+            ->get();
+
+        return response()->json($votes,200);
     }
 
     /**

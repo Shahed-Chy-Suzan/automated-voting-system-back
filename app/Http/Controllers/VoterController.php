@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Voter;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 
 class VoterController extends Controller
@@ -13,15 +15,17 @@ class VoterController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return array
+     * @return JsonResponse
      */
     public function index()
     {
-        $voters = Voter::all();
+        $voters = DB::table('voters')
+            ->select('voters.*')
+            ->get();
 
-        return ['message'=>'OK', 'data' => $voters];
+        return response()->json($voters,200);
+
     }
-
 
     /**
      * Store a newly created resource in storage.
